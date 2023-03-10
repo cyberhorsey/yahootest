@@ -2,12 +2,11 @@ import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import nodePolyfills from "vite-plugin-node-stdlib-browser";
 import inject from "@rollup/plugin-inject";
-import * as path from "path";
-import vitePluginString from "vite-plugin-require";
+import { esbuildCommonjs } from "@originjs/vite-plugin-commonjs";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), nodePolyfills(), vitePluginString.default({})],
+  plugins: [svelte(), nodePolyfills()],
   // resolve: {
   //   alias: {
   //     "@": path.resolve(__dirname, "src"),
@@ -16,6 +15,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       plugins: [inject({ Buffer: ["buffer", "Buffer"] })],
+    },
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      plugins: [esbuildCommonjs(["@loopring/loopring-sdk"])],
     },
   },
 });
