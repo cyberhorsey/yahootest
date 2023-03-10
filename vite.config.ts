@@ -8,7 +8,7 @@ export default defineConfig({
   define: { global: "window" },
   build: {
     rollupOptions: {
-      plugins: [inject({ Buffer: ["Buffer", "Buffer"] })],
+      plugins: [inject({ Buffer: ["buffer", "Buffer"] })],
     },
   },
 });
