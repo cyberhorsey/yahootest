@@ -20,7 +20,7 @@ export default defineConfig({
     rollupOptions: {
       plugins: [
         inject({
-          include: ["node_modules/@loopring-web/**"],
+          include: ["node_modules/@loopring-web/**", "node_modules/@imtbl/**"],
           modules: { Buffer: ["buffer", "Buffer"] },
         }),
       ],
