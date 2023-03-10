@@ -38,6 +38,7 @@
     "@gamestopnft/detect-gamestop-provider": "^1.0.0",
     "@loopring-web/loopring-sdk": "^3.0.24-redPacket",
     "@rollup/plugin-inject": "^5.0.3",
+    "alchemy-sdk": "^2.6.1",
     "axios": "^1.2.2",
     "buffer": "^6.0.3",
     "ethers": "^5.7.2",
