@@ -7,7 +7,7 @@ import requireTransform from "vite-plugin-require-transform";
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [svelte(), nodePolyfills(), requireTransform()],
+  plugins: [svelte(), nodePolyfills(), requireTransform({})],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "src"),
