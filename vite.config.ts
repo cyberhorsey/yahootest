@@ -19,7 +19,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     esbuildOptions: {
-      plugins: [esbuildCommonjs(["@loopring/loopring-sdk"])],
+      plugins: [esbuildCommonjs(["@loopring-web/**"])],
     },
   },
 });
