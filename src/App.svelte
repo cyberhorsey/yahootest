@@ -4,11 +4,6 @@
   import account from "./store/account";
 
   import Home from "./components/Home.svelte";
-  import { Buffer } from "buffer";
-  import Process from "process";
-  globalThis.process = Process;
-  globalThis.Buffer = Buffer;
-  window.Buffer = window.Buffer || Buffer;
 </script>
 
 <Navbar />

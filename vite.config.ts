@@ -3,6 +3,7 @@ import { svelte } from "@sveltejs/vite-plugin-svelte";
 import nodePolyfills from "vite-plugin-node-stdlib-browser";
 import * as path from "path";
 import inject from "@rollup/plugin-inject";
+import GlobalsPolyfills from "@esbuild-plugins/node-globals-polyfill";
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -25,6 +26,11 @@ export default defineConfig({
         global: "globalThis",
       },
       // Enable esbuild polyfill plugins
+      plugins: [
+        GlobalsPolyfills({
+          process: true,
+          buffer: true,
+        }),
+      ],
     },
-  },
 });
