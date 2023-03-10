@@ -4,7 +4,6 @@
   import account from "./store/account";
 
   import Home from "./components/Home.svelte";
-  window.require = (name) => new URL(name, import.meta.url).href;
 </script>
 
 <Navbar />
