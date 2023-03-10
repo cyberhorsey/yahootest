@@ -3,8 +3,6 @@ import { AccountType } from "../domain/account";
 import type { NFT } from "../domain/nft";
 import fetchEthereumNfts from "./fetchEthereumNfts";
 import fetchImxNfts from "./fetchImxNfts";
-import fetchSolanaNfts from "./fetchSolanaNfts";
-import { web3 } from "@project-serum/anchor";
 import fetchLoopringNfts from "./fetchLoopringNfts";
 
 async function fetchNftsByAddress(account: Account): Promise<NFT[]> {
@@ -18,11 +16,7 @@ async function fetchNftsByAddress(account: Account): Promise<NFT[]> {
 
     return imxNfts.concat(ethereumNfts, loopringNfts);
   } else {
-    const solanaNfts: NFT[] = await fetchSolanaNfts(
-      new web3.Connection(import.meta.env.VITE_SOLANA_RPC_URL),
-      account.address
-    );
-    return solanaNfts;
+    return [];
   }
 }
 

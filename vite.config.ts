@@ -1,22 +1,14 @@
 import { defineConfig } from "vite";
 import { svelte } from "@sveltejs/vite-plugin-svelte";
 import nodePolyfills from "vite-plugin-node-stdlib-browser";
-// https://vitejs.dev/config/
+
+import inject from "@rollup/plugin-inject";
 export default defineConfig({
   plugins: [svelte(), nodePolyfills()],
   define: { global: "window" },
-  resolve: {
-    alias: {
-      buffer: "buffer/",
-    },
-  },
-  optimizeDeps: {
-    esbuildOptions: {
-      // Node.js global to browser globalThis
-      define: {
-        global: "globalThis",
-      },
-      // Enable esbuild polyfill plugins
+  build: {
+    rollupOptions: {
+      plugins: [inject({ Buffer: ["Buffer", "Buffer"] })],
     },
   },
 });
