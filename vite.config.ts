@@ -13,11 +13,11 @@ export default defineConfig({
       targets: ["defaults", "not IE 11"],
     }),
   ],
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-  },
+  // resolve: {
+  //   alias: {
+  //     "@": path.resolve(__dirname, "src"),
+  //   },
+  // },
   build: {
     rollupOptions: {
       plugins: [inject({ Buffer: ["buffer", "Buffer"] })],
