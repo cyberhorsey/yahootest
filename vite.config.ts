@@ -9,16 +9,6 @@ import GlobalsPolyfills from "@esbuild-plugins/node-globals-polyfill";
 export default defineConfig({
   plugins: [svelte(), nodePolyfills()],
   define: { global: "window" },
-  resolve: {
-    alias: {
-      "@": path.resolve(__dirname, "src"),
-    },
-  },
-  build: {
-    rollupOptions: {
-      plugins: [inject({ Buffer: ["buffer", "Buffer"] })],
-    },
-  },
   optimizeDeps: {
     esbuildOptions: {
       // Node.js global to browser globalThis
